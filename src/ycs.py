@@ -64,12 +64,27 @@ def get_api_from_file(file_name='./api.key'):
     return file.readline()[:-1]
 
 
+def simple_print_comment(comments):
+    for comment in comments:
+        print(comment['snippet']['topLevelComment']
+              ['snippet']['authorDisplayName'] + " commented : '" +
+              comment['snippet']['topLevelComment']
+              ['snippet']['textDisplay']+"'\n")
+        if 'replies' in comment:
+            for replie in comment['replies']['comments']:
+                print("\t-> "+replie['snippet']['authorDisplayName'] +
+                      " replied : '"+replie['snippet']['textDisplay']+"'\n")
+
+
 if __name__ == "__main__":
     api_key = get_api_from_file()
-    video_id = 'pP4zvduVAqo'  # will be possible to give it by argument
+    video_id = 'xG393Cfj2IU'  # will be possible to give it by argument
     output_file = 'output.json'  # not implemented yet
 
     comments = extract_comments(video_id, api_key)
 
+    # JSON output
     print(json.dumps(comments, indent=4, sort_keys=True))
-    #print(str(len(comments)) + " Comments extracted.")
+
+    # simple output
+    # simple_print_comment(comments)
