@@ -52,8 +52,6 @@ A small command line utility for scraping YouTube comments using Python3 and You
 
 In futur update inchalah...
 
-### Use
-
 ## In futur version
 
 - Give the video id by argument
@@ -62,5 +60,5 @@ In futur update inchalah...
 
 ## Author
 
-Massili Kezzoul -> (massy.kezzoul@gmail.com)
-last update     -> march 15, 2020
+* Massili Kezzoul -> (massy.kezzoul@gmail.com)
+* Last update     -> march 15, 2020
