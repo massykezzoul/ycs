@@ -71,5 +71,5 @@ if __name__ == "__main__":
 
     comments = extract_comments(video_id, api_key)
 
-    print(json.dumps(comments))
-    print(str(len(comments)) + " Comments extracted.")
+    print(json.dumps(comments, indent=4, sort_keys=True))
+    #print(str(len(comments)) + " Comments extracted.")

@@ -15,35 +15,42 @@ A small command line utility for scraping YouTube comments using Python3 and You
 
 #### Linux
 
-1- first install python3
+1- First, install python3
 
 ```
-# On ubuntu for example
-sudo apt install python3
+    # On ubuntu for example
+    sudo apt install python3
 ```
 
-2- then install all requirement for python
+2- Then install all requirement for python
 
 ```
-# install python requirements
-pip3 install -r requirements.txt
+    # install python requirements
+    pip3 install -r requirements.txt
 ```
 
-3- Get an API Key from Youtube : follow this [tutorial]("https://www.youtube.com/watch?v=pP4zvduVAqo")
+3- Get an API Key from Youtube : follow this [tutorial](https://www.youtube.com/watch?v=pP4zvduVAqo)
 
-4- write your API key in file named `api.key` in the `src/` directory by running this command or other way
+4- Clone this repository 
+```
+    git clone git@github.com:massykezzoul/ycs.git
+    cd ycs/
+```
 
+5- Write your API key in file named `api.key` in the `src/` directory by running this command or other way
 ```
     touch src/api.key
     echo "<YOUR_API_KEY>" > src/api.key
 ```
 
-5- Run the programme and pray
-
+6- Run the programme and pray
+```
+    python3 src/ycs.py > output.json # this print the result in the file 'output.json'
+```
 
 #### Windows
 
-In futur update...
+In futur update inchalah...
 
 ### Use
 
@@ -56,3 +63,4 @@ In futur update...
 ## Author
 
 Massili Kezzoul -> (massy.kezzoul@gmail.com)
+last update     -> march 15, 2020
