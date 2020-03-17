@@ -38,7 +38,7 @@ A small command line utility for scraping YouTube comments using Python3 and You
     cd ycs/
 ```
 
-5- Write your API key in file named `api.key` in the `src/` directory by running this command or other way
+5- (Optional) Write your API key in file named `api.key` in the `src/` directory by running this command or other way
 
 ```
     touch src/api.key
@@ -48,7 +48,8 @@ A small command line utility for scraping YouTube comments using Python3 and You
 6- Run the programme and pray
 
 ```
-    python3 src/ycs.py > output.json # this print the result in the file 'output.json'
+    # if you didn't wrote your api key in the step 5 use this option '-k <API_KEY>'
+    python3 src/ycs.py <videoID> > output.json
 ```
 
 #### Windows
@@ -59,6 +60,7 @@ In futur update inchalah...
 
 - Write the output in a file given by argument
 - Set a number maximum of comments extracted
+- Support youtube link
 
 ## Author
 
