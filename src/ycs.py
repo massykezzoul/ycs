@@ -8,6 +8,7 @@
 import os
 import googleapiclient.discovery
 import json
+import argparse
 
 
 def extract_comments(video_id, youtube_api_key=None, max_response=0):
@@ -76,15 +77,44 @@ def simple_print_comment(comments):
                       " replied : '"+replie['snippet']['textDisplay']+"'\n")
 
 
+def args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "videoID", help="The ID of the video from which you want to extract the comments.", type=str)
+    parser.add_argument(
+        "-f", "--output-file", help="An output file, is set to stdout by default.", type=str)
+    parser.add_argument(
+        "-k", "--api-key", help="your youtube API key, or write it in 'src/api.key'", type=str)
+    parser.add_argument(
+        "-m", "--max-comments", help="max number of comments to extract.", type=int)
+    parser.add_argument("-s", "--simple-comments",
+                        help="if given,the script just print the comments in a human-readable format", action="store_true")
+    args = parser.parse_args()
+
+    return args
+
+
 if __name__ == "__main__":
-    api_key = get_api_from_file()
-    video_id = 'xG393Cfj2IU'  # will be possible to give it by argument
-    output_file = 'output.json'  # not implemented yet
+    output_file = ""  # not implemented yet
+    args = args()
 
-    comments = extract_comments(video_id, api_key)
+    video_id = args.videoID
+    if args.output_file:
+        output_file = args.output_file
+    if args.api_key:
+        api_key = args.api_key
+    else:
+        api_key = get_api_from_file()
+    if args.max_comments:
+        max_comments = args.max_comments
+    else:
+        max_comments = -1
 
-    # JSON output
-    print(json.dumps(comments, indent=4, sort_keys=True))
+    comments = ""  # extract_comments(video_id, api_key)
 
-    # simple output
-    # simple_print_comment(comments)
+    if args.simple_comments:
+        simple_print_comment(comments)
+    elif output_file == "":
+        # JSON output
+        print(json.dumps(comments, indent=4, sort_keys=True))
+    # else print to file
